@@ -34,6 +34,7 @@ import androidx.compose.ui.text.style.LineHeightStyle
 import java.nio.file.WatchEvent
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.ui.modifier.modifierLocalConsumer
 
 
 class MainActivity : ComponentActivity() {
@@ -192,7 +193,60 @@ fun screen(){
             )
         }
 
-        
+        Spacer(modifier = Modifier.height(32.dp))
+
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .weight(1f)
+                .background(
+                    color = Color(0xFF421A1A),
+                    shape = RoundedCornerShape(topStart = 28.dp, topEnd = 28.dp)
+                )
+                .padding(horizontal = 20.dp, vertical = 16.dp)
+        ) {
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .verticalScroll(rememberScrollState())
+            ) {
+                Text(
+                    text = "Lyrics",
+                    fontSize = 18.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = Color.White
+                )
+
+                Spacer(modifier = Modifier.height(16.dp))
+
+                Text(
+                    text = """
+                        Jalan serta Yesus,
+                        jalan serta-Nya setiap hari.
+                        Jalan serta Yesus,
+                        serta Yesus s'lamanya.
+                        
+                        Jalan dalam duka,
+                        jalan dalam suka,
+                        jalan serta-Nya setiap hari.
+                        
+                        Jalan serta Yesus,
+                        serta Yesus s'lamanya.
+                        
+                        Haleluya puji Tuhan,
+                        kemenangan diberikan,
+                        langkah kaki dipimpin-Nya,
+                        sampai akhir hidup kita.
+                    """.trimIndent(),
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.SemiBold,
+                    color = Color.White,
+                    lineHeight = 26.sp
+                )
+
+                Spacer(modifier = Modifier.height(24.dp))
+            }
+        }
     }
 }
 
