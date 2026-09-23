@@ -13,6 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.MoreHoriz
@@ -25,8 +26,12 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.ui.res.painterResource
 import com.example.vp_week2.R
+import androidx.compose.runtime.*
+import java.nio.file.WatchEvent
 
 
 class MainActivity : ComponentActivity() {
@@ -41,6 +46,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun screen(){
+    var sliderPosition by remember { mutableFloatStateOf(0.15f) }
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -88,6 +94,46 @@ fun screen(){
                 .aspectRatio(1f)
                 .clip(RoundedCornerShape(12.dp))
         )
+
+        Spacer(modifier = Modifier.height(24.dp))
+
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+
+            Column {
+                Text(
+                    text = "Jalan Serta Yesus",
+                    fontSize = 22.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = Color.Black
+                )
+                Text(
+                    text = "Saya",
+                    fontSize = 16.sp,
+                    color = Color.Black.copy(alpha = 0.7f)
+                )
+            }
+
+            Icon(
+                imageVector = Icons.Default.Favorite,
+                contentDescription = "Like",
+                tint = Color.Black,
+                modifier = Modifier.size(28.dp)
+            )
+        }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        Column(modifier = Modifier.fillMaxWidth()) {
+            Slider(
+                value = sliderPosition,
+                onValueChange = { sliderPosition = it},
+                colors = SliderDefaults.colors()
+            )
+        }
     }
 }
 
