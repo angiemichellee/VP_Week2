@@ -15,8 +15,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.KeyboardArrowDown
-import androidx.compose.material.icons.filled.MoreHoriz
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
@@ -25,13 +23,17 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.foundation.shape.*
+import androidx.compose.material.icons.filled.*
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.ui.res.painterResource
 import com.example.vp_week2.R
 import androidx.compose.runtime.*
+import androidx.compose.ui.layout.AlignmentLine
+import androidx.compose.ui.text.style.LineHeightStyle
 import java.nio.file.WatchEvent
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 
 
 class MainActivity : ComponentActivity() {
@@ -46,7 +48,6 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun screen(){
-    var sliderPosition by remember { mutableFloatStateOf(0.15f) }
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -128,12 +129,70 @@ fun screen(){
         Spacer(modifier = Modifier.height(16.dp))
 
         Column(modifier = Modifier.fillMaxWidth()) {
-            Slider(
-                value = sliderPosition,
-                onValueChange = { sliderPosition = it},
-                colors = SliderDefaults.colors()
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(3.dp)
+                    .background(Color.Black, shape = RoundedCornerShape(2.dp))
+            )
+
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 4.dp),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Text(
+                    text = "1.12",
+                    fontSize = 12.sp,
+                    color = Color.Black.copy(alpha = 0.7f)
+                )
+
+                Text(
+                    text = "-1.12",
+                    fontSize = 12.sp,
+                    color = Color.Black.copy(alpha = 0.7f)
+                )
+            }
+        }
+
+        Spacer(modifier = Modifier.height(32.dp))
+
+        Row (
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceEvenly,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Icon(
+                imageVector = Icons.Default.SkipPrevious,
+                contentDescription = "Previous",
+                tint = Color.Black,
+                modifier = Modifier.size(40.dp)
+            )
+
+            Box(
+                modifier = Modifier
+                    .size(72.dp)
+                    .background(Color.Black, shape = CircleShape),
+                contentAlignment = Alignment.Center
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Pause,
+                    contentDescription = "Pause",
+                    tint = Color.White,
+                    modifier = Modifier.size(36.dp)
+                )
+            }
+
+            Icon(
+                imageVector = Icons.Default.SkipNext,
+                contentDescription = "Next",
+                tint = Color.Black,
+                modifier = Modifier.size(40.dp)
             )
         }
+
+        
     }
 }
 
