@@ -52,7 +52,7 @@ fun screen(){
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFFFFA5A5))
+            .background(Color(0xFFFFF9EE))
             .statusBarsPadding()
             .navigationBarsPadding()
             .padding(horizontal = 24.dp),
@@ -200,7 +200,7 @@ fun screen(){
                 .fillMaxWidth()
                 .weight(1f)
                 .background(
-                    color = Color(0xFF421A1A),
+                    color = Color(0xFF2C221E),
                     shape = RoundedCornerShape(topStart = 28.dp, topEnd = 28.dp)
                 )
                 .padding(horizontal = 20.dp, vertical = 16.dp)
