@@ -9,6 +9,7 @@ int drawable ab67616d0000b273f1816e26cf5b47aa073ccf15 0x0
 int drawable ic_launcher_background 0x0
 int drawable ic_launcher_foreground 0x0
 int drawable jalanserta 0x0
+int drawable wallpaper 0x0
 int mipmap ic_launcher 0x0
 int mipmap ic_launcher_round 0x0
 int string app_name 0x0
