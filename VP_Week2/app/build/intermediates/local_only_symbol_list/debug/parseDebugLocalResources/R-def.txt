@@ -11,7 +11,9 @@ drawable ab67616d0000b273f1816e26cf5b47aa073ccf15
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable jalanserta
+
 drawable wallpaper
+font poppins_regular
 mipmap ic_launcher
 mipmap ic_launcher_round
 string app_name
